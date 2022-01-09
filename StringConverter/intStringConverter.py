@@ -57,7 +57,7 @@ def intToWords(number: int) -> str:
                 outputString = " " + thousands[scale] + outputString
                 and_bol = False
             else:
-                outputString = " " + thousands[scale] +", " + outputString
+                outputString = " " + thousands[scale] + ", " + outputString
 
         curr_right = num_left % 1000
         num_left = num_left // 1000
@@ -93,7 +93,7 @@ def intToWords(number: int) -> str:
                         and_bol = True
                     else:
                         outputString = ", " + outputString
-                        and_bol = False
+                        and_bol = True
 
         scale += 1
 
@@ -108,6 +108,5 @@ def intStringConverter(number: int) -> str:
     else:
         return intToWords(number)
 
-
 if __name__ == "__main__":
-    print(intStringConverter(-654154430030))
+    print(intStringConverter(636636))
