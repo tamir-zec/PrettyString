@@ -52,15 +52,15 @@ def intToWords(number: int) -> str:
     scale = 0
     num_left = number
     while num_left > 0:
+        curr_right = num_left % 1000
+        num_left = num_left // 1000
         if scale > 0:
             if and_bol:
                 outputString = " " + thousands[scale] + outputString
-                and_bol = False
             else:
-                outputString = " " + thousands[scale] + ", " + outputString
+                if curr_right != 0:
+                    outputString = " " + thousands[scale] + outputString
 
-        curr_right = num_left % 1000
-        num_left = num_left // 1000
         if curr_right > 0:
             ##check if has 1-99 part
             curr_right_xx = curr_right % 100
@@ -69,10 +69,10 @@ def intToWords(number: int) -> str:
                 if curr_right_xx < 10:
                     outputString = digits[curr_right_xx] + outputString
 
-                if 10 < curr_right_xx < 20:
+                if 10 <= curr_right_xx < 20:
                     outputString = tens[curr_right_xx] + outputString
 
-                if 20 < curr_right_xx < 100:
+                if 20 <= curr_right_xx < 100:
                     optional_digit = curr_right_xx % 10
                     if optional_digit != 0:
                         outputString = " " + digits[optional_digit] + outputString
@@ -86,15 +86,16 @@ def intToWords(number: int) -> str:
 
 
             # by british english we add and after numbers bigger than 1000 if they are smaller than 100
-            if scale == 0:
-                if num_left > 0:
-                    if curr_right < 100:
+            if num_left > 0:
+                if curr_right < 100:
+                    outputString = " and " + outputString
+                    and_bol = True
+                else:
+                    if not and_bol:
                         outputString = " and " + outputString
                         and_bol = True
                     else:
                         outputString = ", " + outputString
-                        and_bol = True
-
         scale += 1
 
     return outputString.capitalize()+"."
@@ -102,11 +103,13 @@ def intToWords(number: int) -> str:
 
 def intStringConverter(number: int) -> str:
     if number == 0:
-        return "zero"
+        return "Zero."
     if number < 0:
         return "Negative " + intToWords(-1 * number)
     else:
         return intToWords(number)
 
+
 if __name__ == "__main__":
-    print(intStringConverter(636636))
+    val = input("Enter a number to convert to string: ")
+    print(intStringConverter(int(val)))
