@@ -101,7 +101,7 @@ def intToWords(number: int) -> str:
     return outputString.capitalize()+"."
 
 
-def intStringConverter(number: int) -> str:
+def intConverter(number: int) -> str:
     if number == 0:
         return "Zero."
     if number < 0:
@@ -112,4 +112,4 @@ def intStringConverter(number: int) -> str:
 
 if __name__ == "__main__":
     val = input("Enter a number to convert to string: ")
-    print(intStringConverter(int(val)))
+    print(intConverter(int(val)))

@@ -1,4 +1,4 @@
-from PrettyString import intStringConverter
+from StringConverter import intStringConverter
 
 
 def run_test_0():
@@ -8,7 +8,7 @@ def run_test_0():
                      "nine."]
     output = []
     for num_input, expected_0 in zip(Test_case_0, expected_out0):
-        curr_out = intStringConverter(num_input).lower()
+        curr_out = intStringConverter.intConverter(num_input).lower()
         assert curr_out == expected_0.lower(), f"Failed at Test 0 - expected {expected_0}, got {curr_out}"
 
 
@@ -21,7 +21,7 @@ def run_test_1():
                      "Three hundred and three.",
                      "four hundred and fifty.", "nine hundred and eighty one."]
     for num_input, expected_1 in zip(Test_case_1, expected_out1):
-        curr_out = intStringConverter(num_input).lower()
+        curr_out = intStringConverter.intConverter(num_input).lower()
         assert curr_out == expected_1.lower(), f"Failed at Test 1 - expected {expected_1}, got {curr_out}"
 
 
@@ -33,7 +33,7 @@ def run_test_2():
                      "two hundred and ten billion, nine hundred and forty eight million and forty thousand."]
     output = []
     for num_input, expected_2 in zip(Test_case_2, expected_out2):
-        curr_out = intStringConverter(num_input).lower()
+        curr_out = intStringConverter.intConverter(num_input).lower()
         assert curr_out == expected_2.lower(), f"Failed at Test 2 - expected {expected_2} , got {curr_out}"
 
 
@@ -41,4 +41,4 @@ if __name__ == "__main__":
     run_test_0()
     run_test_1()
     run_test_2()
-    print("Finished - running test")
+    print("Finished All Tests")

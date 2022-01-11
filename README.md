@@ -10,15 +10,15 @@ pip install PrettyString
 
 ####import
 ```python
-from PrettyString import StringConverter 
+from StringConverter import intStringConverter 
 ```
 
 ## Usage
 ####solution call
 ```python
-from PrettyString import StringConverter
+from StringConverter import intStringConverter
 
-StringConverter.intStringConverter(int)
+intStringConverter.intConverter(int)
 ```      
 
 This returns word representation of an integer as a string
