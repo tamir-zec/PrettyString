@@ -1,4 +1,4 @@
-from PrettyString.intStringConverter import intStringConverter
+from PrettyString import intStringConverter
 
 
 def run_test_0():
